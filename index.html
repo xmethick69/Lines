@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just For You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    .box {
+      max-width: 350px;
+      padding: 25px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: #ff4d6d;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-top: 15px;
+      display: none;
+    }
+
+    input {
+      display: none;
+    }
+
+    .lines {
+      margin-top: 15px;
+      font-size: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2 id="title">Hey ❤️</h2>
+    <p id="msg">
+      Ek choti si cheez hai sirf tumhare liye…<br>
+      Dil se banayi hai 💕
+    </p>
+
+    <button id="startBtn" onclick="startLove()">Tap here cutie 💗</button>
+
+    <input type="file" accept="image/*" id="imgInput">
+    <img id="photo">
+
+    <div class="lines" id="lines">
+      <p>Ye sirf ek photo nahi hai…</p>
+      <p>Ye meri duniya ka sabse khoobsurat hissa hai ❤️</p>
+      <p>Tumhari muskaan meri sabse badi kamzori hai 🥺</p>
+      <p>Aur tum… meri sabse pyari aadat ho 💖</p>
+    </div>
+  </div>
+
+  <script>
+    function startLove() {
+      document.getElementById("msg").innerHTML =
+        "Ab ek last step hai…<br>Apni photo choose karo 💕";
+      document.getElementById("startBtn").style.display = "none";
+      document.getElementById("imgInput").click();
+    }
+
+    document.getElementById("imgInput").addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const img = document.getElementById("photo");
+        img.src = URL.createObjectURL(file);
+        img.style.display = "block";
+        document.getElementById("lines").style.display = "block";
+        document.getElementById("title").innerText = "My Favorite Person ❤️";
+      }
+    });
+  </script>
+
+</body>
+</html>
